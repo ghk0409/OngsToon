@@ -1,96 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:ongstoon/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyWidget());
+  runApp(const OngsPomoApp());
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  int counter = 0;
-  List<int> numbers = [];
-  bool showTitle = true;
-
-  void onClicked() {
-    setState(() {
-      counter++;
-      numbers.add(numbers.length);
-    });
-  }
-
-  void toggleTitle() {
-    setState(() {
-      showTitle = !showTitle;
-    });
-  }
+class OngsPomoApp extends StatelessWidget {
+  const OngsPomoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFE7626C),
         textTheme: const TextTheme(
-          titleLarge: TextStyle(
-            color: Colors.red,
+          headlineLarge: TextStyle(
+            color: Color(0xFF232B55),
+            // color: Color(0xFFE7626C),
           ),
         ),
+        cardColor: const Color(0XFFF4EDDB),
       ),
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4EDDB),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              showTitle ? const MyLargeTitle() : const Text('Noting'),
-              IconButton(
-                onPressed: toggleTitle,
-                icon: const Icon(Icons.remove_red_eye),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class MyLargeTitle extends StatefulWidget {
-  const MyLargeTitle({
-    super.key,
-  });
-
-  @override
-  State<MyLargeTitle> createState() => _MyLargeTitleState();
-}
-
-class _MyLargeTitleState extends State<MyLargeTitle> {
-  // initState는 위젯 생성 시 한 번만 호출됨
-  @override
-  void initState() {
-    super.initState();
-    print('hello');
-  }
-
-  // dispose는 위젯이 제거될 때 한 번만 호출됨
-  @override
-  void dispose() {
-    super.dispose();
-    print('goodbye');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    print('build!');
-    return Text(
-      'My Large Title',
-      style: TextStyle(
-        fontSize: 30,
-        color: Theme.of(context).textTheme.titleLarge?.color,
-      ),
+      home: const HomeScreen(),
     );
   }
 }
