@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ongstoon/widgets/button.dart';
-import 'package:ongstoon/widgets/currency_card.dart';
+import 'package:ongstoon/basic/widgets/button.dart';
+import 'package:ongstoon/basic/widgets/currency_card.dart';
 
 void main() {
   runApp(const App());
